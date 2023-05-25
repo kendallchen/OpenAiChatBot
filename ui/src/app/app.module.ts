@@ -8,8 +8,6 @@ import { MaterialModule } from './common/material.module';
 import { AppComponent } from './app.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CustomerComponent } from './customer/customer.component';
-import { CustomerDialog } from './customer/dialog/customer-dialog.component';
 import { AppConfigService } from './service/app-config.service';
 import { ChatComponent } from './chat/chat.component';
 
@@ -32,9 +30,7 @@ const routes: Routes = [{ path: '', component: ChatComponent
   ],
   declarations: [
     AppComponent,
-    TopBarComponent,
-    CustomerComponent,
-    CustomerDialog,
+    TopBarComponent,  
     ChatComponent
   ],
   bootstrap: [ AppComponent ],
