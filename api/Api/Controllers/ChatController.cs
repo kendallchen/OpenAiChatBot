@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Azure;
 using Azure.AI.OpenAI;
 using Microsoft.Extensions.Configuration;
+using Api.Model;
 
 namespace Api.Controllers
 {
@@ -20,7 +21,7 @@ namespace Api.Controllers
         }
 
         [HttpGet]
-        public async Task<String> GetResponse(string query)
+        public async Task<Chat> GetResponse(string query)
         {
             OpenAIClient client = new OpenAIClient(
                 new Uri(config["AzureEndPoint"]),
@@ -34,8 +35,7 @@ namespace Api.Controllers
                     config["ModelName"],
                     option
                 );
-
-            return response.Value.Choices[0].Message.Content;
+            return new Chat { Response = response.Value.Choices[0].Message.Content };
         }
     }
 }

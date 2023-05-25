@@ -1,3 +1,4 @@
 {
-    "apiCustomer": "https://localhost:44381/api/customer" 
+    "apiCustomer": "https://localhost:44381/api/customer" ,
+    "apiChat": "https://localhost:44381/api/chat" 
 }
