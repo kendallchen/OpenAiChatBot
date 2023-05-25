@@ -4,6 +4,7 @@ using System;
 using System.Threading.Tasks;
 using Azure;
 using Azure.AI.OpenAI;
+using Microsoft.Extensions.Configuration;
 
 namespace Api.Controllers
 {
@@ -11,23 +12,30 @@ namespace Api.Controllers
     [ApiController]
     public class ChatController : ControllerBase
     {
-        [HttpGet]
-        public async Task<String> GetResponse()
+        private readonly IConfiguration config;
+
+        public ChatController(IConfiguration config)
         {
-            var openAiClient = new OpenAIClient(
-                new Uri("endPointHere"),
-                new AzureKeyCredential("keyHere")
+            this.config = config;
+        }
+
+        [HttpGet]
+        public async Task<String> GetResponse(string query)
+        {
+            OpenAIClient client = new OpenAIClient(
+                new Uri(config["AzureEndPoint"]),
+                new AzureKeyCredential(config["AzureKey"])
             );
 
-            var chatCompletionOptions = new ChatCompletionsOptions { };
-            chatCompletionOptions.Messages.Add(new ChatMessage(ChatRole.User, "Who is the tallest in NBA?"));
+            ChatCompletionsOptions option = new ChatCompletionsOptions { };
+            option.Messages.Add(new ChatMessage(ChatRole.User, query));
 
-            var chatCompletionsResponse = await openAiClient.GetChatCompletionsAsync(
-                    "modelNameHere",
-                    chatCompletionOptions
+            Response<ChatCompletions> response = await client.GetChatCompletionsAsync(
+                    config["ModelName"],
+                    option
                 );
 
-            return chatCompletionsResponse.Value.Choices[0].Message.Content;
+            return response.Value.Choices[0].Message.Content;
         }
     }
 }
