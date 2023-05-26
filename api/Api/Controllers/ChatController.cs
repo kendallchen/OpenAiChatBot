@@ -21,7 +21,7 @@ namespace Api.Controllers
         }
 
         [HttpGet]
-        public async Task<Chat> GetResponse(string query)
+        public async Task<ChatMsg> GetResponse(string query)
         {
             OpenAIClient client = new OpenAIClient(
                 new Uri(config["AzureEndPoint"]),
@@ -35,7 +35,7 @@ namespace Api.Controllers
                     config["ModelName"],
                     option
                 );
-            return new Chat { Response = response.Value.Choices[0].Message.Content };
+            return new ChatMsg { Message = response.Value.Choices[0].Message.Content };
         }
     }
 }

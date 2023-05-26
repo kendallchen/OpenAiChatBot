@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IChat } from '../model/IChat';
+import { IChatMsg } from '../model/IChatMsg';
 import { ChatService } from '../service/chat.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { ChatService } from '../service/chat.service';
 })
 export class ChatComponent implements OnInit {
 
-  chat: IChat;
+  chat: IChatMsg;
 
   constructor(private chatSvc:ChatService) { }
 
