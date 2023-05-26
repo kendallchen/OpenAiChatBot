@@ -9,7 +9,7 @@ import { ChatService } from '../service/chat.service';
 })
 export class ChatComponent implements OnInit {
 
-  chat: IChatMsg;
+  chatHistory: IChatMsg[];
 
   constructor(private chatSvc:ChatService) { }
 
@@ -21,7 +21,7 @@ export class ChatComponent implements OnInit {
     
       this.chatSvc.chat("what is the biggest tree in the world")
         .subscribe(data=>
-          this.chat = data
+          this.chatHistory = data
       );
   }
 
