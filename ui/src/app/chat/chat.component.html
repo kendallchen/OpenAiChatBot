@@ -5,3 +5,17 @@
 <li *ngFor="let msg of chatHistory">
     {{msg.type}} {{msg.message}}
 </li>
+
+<div>
+    <form novalidate
+            (ngSubmit)="sendQuery()"
+            [formGroup]="frmQuery">
+        <div>
+            <mat-form-field>
+                <mat-label>Ask me a question</mat-label>
+                <input matInput placeholder="Ex. What is today's date?"
+                    fromControlName="txtQuery">
+            </mat-form-field>
+        </div>
+    </form>
+</div>

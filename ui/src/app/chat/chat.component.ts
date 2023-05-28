@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { IChatMsg } from '../model/IChatMsg';
 import { ChatService } from '../service/chat.service';
 
@@ -10,19 +11,25 @@ import { ChatService } from '../service/chat.service';
 export class ChatComponent implements OnInit {
 
   chatHistory: IChatMsg[];
+  frmQuery: FormGroup;
 
-  constructor(private chatSvc:ChatService) { }
+  constructor(private chatSvc:ChatService,
+              private fb: FormBuilder) { }
 
   ngOnInit(): void {
-    this.sendMessage();
+    this.frmQuery = this.fb.group({
+        txtQuery: ['', [Validators.required,
+                        Validators.minLength(3),
+                        Validators.maxLength(5000)]]
+    }); 
   }
 
-  sendMessage(){
+  sendQuery(){
     
-      this.chatSvc.chat("what is the biggest tree in the world")
-        .subscribe(data=>
-          this.chatHistory = data
-      );
+    //   this.chatSvc.chat("what is the biggest tree in the world")
+    //     .subscribe(data=>
+    //       this.chatHistory = data
+    //   );
   }
 
 }
