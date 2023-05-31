@@ -1,21 +1,18 @@
-<p>chat component</p>
-
-
 
 <li *ngFor="let msg of chatHistory">
     {{msg.type}} {{msg.message}}
 </li>
+<div>
+
+</div>
 
 <div>
-    <form novalidate
-            (ngSubmit)="sendQuery()"
-            [formGroup]="frmQuery">
-        <div>
+    <form >
             <mat-form-field>
-                <mat-label>Ask me a question</mat-label>
-                <input matInput placeholder="Ex. What is today's date?"
+                <mat-label>Chat with me here</mat-label>
+                <input type="text" matInput
                     fromControlName="txtQuery">
             </mat-form-field>
-        </div>
+            <button mat-raised-button color="primary">Send</button>
     </form>
 </div>
