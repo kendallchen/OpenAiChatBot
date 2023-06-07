@@ -1,18 +1,24 @@
 
-<li *ngFor="let msg of chatHistory">
+<!-- <li *ngFor="let msg of chatHistory">
     {{msg.type}} {{msg.message}}
-</li>
-<div>
-
-</div>
-
-<div>
-    <form >
+</li> -->
+<div class="overall">
+    <div class="response">
+        <div>item1</div>
+        <div>item2</div>
+    </div>
+    <div class="request">
+        <form>
             <mat-form-field>
                 <mat-label>Chat with me here</mat-label>
                 <input type="text" matInput
                     fromControlName="txtQuery">
             </mat-form-field>
             <button mat-raised-button color="primary">Send</button>
-    </form>
+        </form>
+    </div>    
 </div>
+
+
+    
+

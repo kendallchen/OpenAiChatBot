@@ -1,4 +1,15 @@
 
-// .query-form {
-//     text-transform: none;
-// }
+.overall{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    .response{
+        flex: 100;
+        display: flex;
+        flex-direction: column;
+    }
+    .request{
+        flex: 1;
+    }
+}
