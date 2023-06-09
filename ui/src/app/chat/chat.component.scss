@@ -1,89 +1,77 @@
-
-
-.response {
-    position: fixed;
-    top: 4rem;
-    bottom: 8rem; 
-    display: flex;
-    flex-direction: column;
-    min-width: 15em;
-    // width: 50%;
-    background: var(--background);
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.24);
-  }
-   
-  .messages {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    overflow-y: scroll;
-    padding: 1em 1.5em 0;
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.24);
-  }
-  
-  .message {
-    display: flex;
-    align-items: center;
-  }
-  
-  .message p {
-    border-radius: 0.25em;
-    padding: 0.5em;
-    margin-bottom: 1em;
-  }
-  
-  .message.agent {
-    position: relative;
-  }
-  
-  .message.agent::after {
-    content: "";
-    position: absolute;
-    left: -15px;
-    bottom: 1em;
-    border: 0 solid transparent;
-    border-top: 9px solid var(--primary);
-    border-radius: 0 20px 0;
-    width: 15px;
-    height: 30px;
-    transform: rotate(145deg);
-  }
-  
-  .message.agent p {
-    background-color: var(--primary);
-    color: var(--txt-light);
-    border-radius: 4px;
-  }
-  
-  .message.input {
-    position: relative;
-    align-self: flex-end;
-  }
-  
-  .message.input::after {
-    content: "";
-    position: absolute;
-    right: -15px;
-    bottom: 1em;
-    border: 0 solid transparent;
-    border-top: 9px solid var(--secondary);
-    border-radius: 0 20px 0;
-    width: 15px;
-    height: 30px;
-    transform: rotate(45deg) scaleY(-1);
-  }
-  
-  .message.input p {
-    background-color: var(--secondary);
-    text-align: right;
-    color: var(--txt-light);
-  }
-  
-
-.chat{
+.chat {
     width: 100%;
     height: 100%;
+    .response {
+        position: fixed;
+        top: 4rem;
+        bottom: 8rem;
+        display: flex;
+        flex-direction: column;
+        min-width: 30rem;
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.24);
+        .messages {
+            flex: 1;
+            display: flex;
+            flex-direction: column-reverse;
+            overflow-y: scroll;
+            overflow-x: hidden;
+            padding: 1em 1.5em 0;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.24);
+            .message {
+                display: flex;
+                align-items: center;
+                p {
+                    border-radius: 0.25em;
+                    padding: 0.5em;
+                    margin-bottom: 1em;
+                }
+            }
+            .message.agent {
+                position: relative;
+                p {
+                    background-color: var(--primary);
+                    color: var(--txt-light);
+                    border-radius: 4px;
+                }
+                &::after {
+                    content: "";
+                    position: absolute;
+                    left: -15px;
+                    bottom: 1em;
+                    border: 0 solid transparent;
+                    border-top: 9px solid var(--primary);
+                    border-radius: 0 20px 0;
+                    width: 15px;
+                    height: 30px;
+                    transform: rotate(145deg);
+                }                
+            }
+            .message.input {
+                position: relative;
+                align-self: flex-end;
+                p {
+                    background-color: var(--secondary);
+                    text-align: right;
+                    color: var(--txt-light);
+                }
+                &::after {
+                    content: "";
+                    position: absolute;
+                    right: -15px;
+                    bottom: 1em;
+                    border: 0 solid transparent;
+                    border-top: 9px solid var(--secondary);
+                    border-radius: 0 20px 0;
+                    width: 15px;
+                    height: 30px;
+                    transform: rotate(45deg) scaleY(-1);
+                }
+            }
+        }
+    }
 }
+
+
 
 
 
