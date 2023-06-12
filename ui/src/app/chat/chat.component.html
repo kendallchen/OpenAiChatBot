@@ -1,5 +1,5 @@
 <div class="chat">
-    <div class="response">
+    <div class="chat-container">
         <div class="messages">
             <div class="bot-message">  
                 <p>robot message bottom</p>
@@ -122,6 +122,16 @@
                 <p>top Sure thing, we can definitely help with that. Where should we send aforementioned help?</p>
             </div>
         </div>
+        <div class="user-input">
+            <form>
+                <mat-form-field class="input-container">
+                    <mat-label>Chat with me here</mat-label>
+                    <input type="text" matInput
+                        fromControlName="txtQuery">
+                </mat-form-field>
+                <button mat-raised-button color="primary" class="user-btn">Send</button>
+            </form>
+        </div> 
     </div>
 </div>
 
@@ -129,45 +139,3 @@
 <!-- <li *ngFor="let msg of chatHistory">
     {{msg.type}} {{msg.message}}
 </li> -->
-
-<!-- <div class="overall">
-    <div class="response">
-        <div class="item">item1</div>
-        <div class="item">item2</div>
-        <div class="item">item1</div>
-        <div class="item">item2</div><div class="item">item1</div>
-        <div class="item">item2</div><div class="item">item1</div>
-        <div class="item">item2</div><div class="item">item1</div>
-        <div class="item">item2</div><div class="item">item1</div>
-        <div class="item">item2</div><div class="item">item1</div>
-        <div class="item">item2</div><div class="item">item1</div>
-        <div class="item">item2</div><div class="item">item1</div>
-        <div class="item">item2</div><div class="item">item1</div>
-        <div class="item">item2</div><div class="item">item1</div>
-        <div class="item">item2</div><div class="item">item1</div>
-        <div class="item">item2</div><div class="item">item1</div>
-        <div class="item">item2</div><div class="item">item1</div>
-        <div class="item">item2</div><div class="item">item1</div>
-        <div class="item">item2</div><div class="item">item1</div>
-        <div class="item">item2</div><div class="item">item1</div>
-        <div class="item">item2</div><div class="item">itemaa</div>
-        <div class="item">itembb</div><div class="item">itemaa</div>
-        <div class="item">itembb</div><div class="item">itemaa</div>
-        <div class="item">itembb</div><div class="item">itemaa</div>
-        <div class="item">itembb</div><div class="item">itemaa</div>
-        <div class="item">itembb</div><div class="item">itemaa</div>
-        <div class="item">itembb</div><div class="item">itemaa</div>
-        <div class="item">itembb</div><div class="item">itemaa</div>
-        <div class="item">itembb</div>
-    </div>
-    <div class="request">
-        <form>
-            <mat-form-field>
-                <mat-label>Chat with me here</mat-label>
-                <input type="text" matInput
-                    fromControlName="txtQuery">
-            </mat-form-field>
-            <button mat-raised-button color="primary">Send</button>
-        </form>
-    </div>    
-</div> -->
