@@ -1,24 +1,7 @@
 <div class="chat">
     <div class="chat-container">
         <div class="messages">
-            <div class="bot-message">  
-                <p>robot message bottom</p>
-            </div>
-            <div class="user-message">
-                <p>omg the world is burning!!! aatest</p>
-            </div>
-            <div class="bot-message">
-                <p>Not to worry. What kind of help are you looking for?</p>
-            </div>
-            <div class="user-message"> 
-                <p>THE KIND THAT WILL STOP ME FROM DYING???</p>
-            </div>
-            <div class="bot-message">
-                <p>Sure thing, we can definitely help with that. Where should we send aforementioned help?</p>
-            </div>
-            <div class="bot-message">
-                <p>robot message 1</p>
-            </div>
+            
             <div class="user-message">
                 <p>omg the world is burning!!! send halpppp!!</p>
             </div>
@@ -29,107 +12,16 @@
                 <p>THE KIND THAT WILL STOP ME FROM DYING???</p>
             </div>
             <div class="bot-message">
-                <p>Sure thing, we can definitely help with that. Where should we send aforementioned help?</p>
-            </div>
-            <div class="bot-message">
-                <p>robot message 1</p>
-            </div>
-            <div class="user-message">
-                <p>omg the world is burning!!! send halpppp!!</p>
-            </div>
-            <div class="bot-message">
-                <p>Not to worry. What kind of help are you looking for?</p>
-            </div>
-            <div class="user-message">
-                <p>THE KIND THAT WILL STOP ME FROM DYING???</p>
-            </div>
-            <div class="bot-message">
-                <p>Sure thing, we can definitely help with that. Where should we send aforementioned help?</p>
-            </div>
-            <div class="bot-message">
-                <p>robot message 1</p>
-            </div>
-            <div class="user-message">
-                <p>omg the world is burning!!! send halpppp!!</p>
-            </div>
-            <div class="bot-message">
-                <p>Not to worry. What kind of help are you looking for?</p>
-            </div>
-            <div class="user-message">
-                <p>THE KIND THAT WILL STOP ME FROM DYING???</p>
-            </div>
-            <div class="bot-message">
-                <p>Sure thing, we can definitely help with that. Where should we send aforementioned help?</p>
-            </div>
-            <div class="bot-message">
-                <p>robot message 1</p>
-            </div>
-            <div class="user-message">
-                <p>omg the world is burning!!! send halpppp!!</p>
-            </div>
-            <div class="bot-message">
-                <p>Not to worry. What kind of help are you looking for?</p>
-            </div>
-            <div class="user-message">
-                <p>THE KIND THAT WILL STOP ME FROM DYING???</p>
-            </div>
-            <div class="bot-message">
-                <p>Sure thing, we can definitely help with that. Where should we send aforementioned help?</p>
-            </div>
-            <div class="bot-message">
-                <p>robot message 1</p>
-            </div>
-            <div class="user-message">
-                <p>omg the world is burning!!! send halpppp!!</p>
-            </div>
-            <div class="bot-message">
-                <p>Not to worry. What kind of help are you looking for?</p>
-            </div>
-            <div class="user-message">
-                <p>THE KIND THAT WILL STOP ME FROM DYING???</p>
-            </div>
-            <div class="bot-message">
-                <p>Sure thing, we can definitely help with that. Where should we send aforementioned help?</p>
-            </div>
-            <div class="bot-message">
-                <p>robot message 1</p>
-            </div>
-            <div class="user-message">
-                <p>omg the world is burning!!! send halpppp!!</p>
-            </div>
-            <div class="bot-message">
-                <p>Not to worry. What kind of help are you looking for?</p>
-            </div>
-            <div class="user-message">
-                <p>THE KIND THAT WILL STOP ME FROM DYING???</p>
-            </div>
-            <div class="bot-message">
-                <p>Sure thing, we can definitely help with that. Where should we send aforementioned help?</p>
-            </div>
-            <div class="bot-message">
-                <p>robot message 1</p>
-            </div>
-            <div class="user-message">
-                <p>omg the world is burning!!! send halpppp!!</p>
-            </div>
-            <div class="bot-message">
-                <p>Not to worry. What kind of help are you looking for?</p>
-            </div>
-            <div class="user-message">
-                <p>THE KIND THAT WILL STOP ME FROM DYING???</p>
-            </div>
-            <div class="bot-message">
-                <p>top Sure thing, we can definitely help with that. Where should we send aforementioned help?</p>
+                <p>top Sure thing, we can definitely help</p>
             </div>
         </div>
         <div class="user-input">
-            <form>
+            <form novalidate [formGroup]="frmQuery">
                 <mat-form-field class="input-container">
-                    <mat-label>Chat with me here</mat-label>
-                    <input type="text" matInput
-                        fromControlName="txtQuery">
+                    <input type="text" matInput formControlName="txtQuery">
+                    <mat-hint>Chat with me here</mat-hint>
                 </mat-form-field>
-                <button mat-raised-button color="primary" class="user-btn">Send</button>
+                <button mat-raised-button color="primary" class="user-btn" (click)="submitQuery()">Send</button>
             </form>
         </div> 
     </div>

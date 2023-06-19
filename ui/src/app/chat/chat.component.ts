@@ -18,19 +18,16 @@ export class ChatComponent implements OnInit {
 
     ngOnInit(): void {
         this.frmQuery = this.fb.group({
-            txtQuery: ['', [Validators.required,
-                            Validators.minLength(3),
-                            Validators.maxLength(5000)]]
+            txtQuery: [null]
         }); 
     }
 
-    sendQuery(){
-
-
-        //   this.chatSvc.chat("what is the biggest tree in the world")
-        //     .subscribe(data=>
-        //       this.chatHistory = data
-        //   );
+    submitQuery(){  
+        let query = this.frmQuery.get("txtQuery").value;
+        this.chatSvc.chat(query)
+            .subscribe(data=>
+                this.chatHistory = data
+            );
     }
 
 }
