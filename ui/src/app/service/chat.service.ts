@@ -25,7 +25,7 @@ export class ChatService {
         if (!queryMessage)
             return this.chatHistory$;
         this.chatHistoryRecord.push(queryMessage);
-        this.chatHistory.next(this.chatHistoryRecord.reverse());
+        this.chatHistory.next(this.chatHistoryRecord.slice().reverse());
         //get response
         let queryUrl = this.url + "?query=" + queryMessage.message;
         this.http.get<IChatMsg>(queryUrl).pipe()
@@ -33,7 +33,7 @@ export class ChatService {
                 if (result){
                     const receiveMsg : IChatMsg = { type: MessageType.Receive, message : result.message };
                     this.chatHistoryRecord.push(receiveMsg);
-                    this.chatHistory.next(this.chatHistoryRecord.reverse());
+                    this.chatHistory.next(this.chatHistoryRecord.slice().reverse());
                 }                    
             }
         )

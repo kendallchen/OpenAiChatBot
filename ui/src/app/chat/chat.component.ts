@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { IChatMsg, MessageType } from '../model/IChatMsg';
 import { ChatService } from '../service/chat.service';
-import { Observable } from 'rxjs';
 
 @Component({
     selector: 'app-chat',
@@ -28,11 +27,16 @@ export class ChatComponent implements OnInit {
     }
 
     submitQuery() {
+        //ignore if no query given
+        if (!this.frmQuery.get("txtQuery").value)
+            return;
         let queryMessage: IChatMsg = {
             type: MessageType.Send,
             message: this.frmQuery.get("txtQuery").value
         };
         this.chatSvc.chat(queryMessage);
+        //blank out textbox for next user input
+        this.frmQuery.get("txtQuery").setValue(null);
     }
 
 }
