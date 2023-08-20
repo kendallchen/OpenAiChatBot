@@ -24,6 +24,8 @@ export class ChatService {
     chat(queryMessage: IChatMsg): Observable<IChatMsg[]>{
         if (!queryMessage)
             return this.chatHistory$;
+        this.chatHistoryRecord.push(queryMessage);
+        this.chatHistory.next(this.chatHistoryRecord.reverse());
         //get response
         let queryUrl = this.url + "?query=" + queryMessage.message;
         this.http.get<IChatMsg>(queryUrl).pipe()
@@ -31,25 +33,11 @@ export class ChatService {
                 if (result){
                     const receiveMsg : IChatMsg = { type: MessageType.Receive, message : result.message };
                     this.chatHistoryRecord.push(receiveMsg);
-                    this.chatHistory.next(this.chatHistoryRecord);
+                    this.chatHistory.next(this.chatHistoryRecord.reverse());
                 }                    
             }
         )
         return this.chatHistory$;
     }
-
-    // chat(queryMessage: IChatMsg): Observable<IChatMsg[]>{
-    //     //get response
-    //     let queryUrl = this.url + "?query=" + queryMessage.message;
-    //     this.http.get<IChatMsg>(queryUrl).pipe()
-    //         .subscribe(result=>{
-    //             if (result){
-    //                 const receiveMsg : IChatMsg = { type: MessageType.Receive, message : result.message };
-    //                 this.response.next(receiveMsg)
-    //             }                    
-    //         }
-    //     )
-    //     return this.response$;
-    // }
 
 }
