@@ -1,6 +1,6 @@
 <div class="chat">
     <div class="chat-container">
-        <div class="messages">
+        <div class="messages">   
             <div *ngFor="let msg of chatHistory"
                 [ngClass]="{'user-message': msg.type == 1, 'bot-message': msg.type == 2}" >
                 <p>{{msg.message}}</p>

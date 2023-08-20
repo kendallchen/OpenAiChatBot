@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { IChatMsg, MessageType } from '../model/IChatMsg';
 import { ChatService } from '../service/chat.service';
+import { Observable } from 'rxjs';
 
 @Component({
     selector: 'app-chat',
@@ -10,8 +11,9 @@ import { ChatService } from '../service/chat.service';
 })
 export class ChatComponent implements OnInit {
 
-    chatHistory: IChatMsg[] = [];
     frmQuery: FormGroup;
+
+    chatHistory: IChatMsg[];
 
     constructor(private chatSvc: ChatService,
         private fb: FormBuilder) { }
@@ -20,19 +22,17 @@ export class ChatComponent implements OnInit {
         this.frmQuery = this.fb.group({
             txtQuery: [null]
         });
+
+        this.chatSvc.chat(null)
+            .subscribe(aa => this.chatHistory = aa);
     }
 
     submitQuery() {
-        let queryMessage: IChatMsg = { type: MessageType.Send, 
-                                       message : this.frmQuery.get("txtQuery").value };
-        this.chatHistory.push(queryMessage);
-        this.chatSvc.chat(queryMessage)
-            .subscribe(data => {
-                if (data)
-                {
-                    this.chatHistory.push(data);
-                }
-            });
+        let queryMessage: IChatMsg = {
+            type: MessageType.Send,
+            message: this.frmQuery.get("txtQuery").value
+        };
+        this.chatSvc.chat(queryMessage);
     }
 
 }
