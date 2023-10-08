@@ -2,4 +2,4 @@
 
 AzureEndPoint
 AzureKey
-ModelName
+DeploymentName

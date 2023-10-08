@@ -32,7 +32,7 @@ namespace Api.Controllers
             option.Messages.Add(new ChatMessage(ChatRole.User, query));
 
             Response<ChatCompletions> response = await client.GetChatCompletionsAsync(
-                    config["ModelName"],
+                    config["DeploymentName"],
                     option
                 );
             return new ChatMsg { Message = response.Value.Choices[0].Message.Content };
