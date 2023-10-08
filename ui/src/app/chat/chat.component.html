@@ -5,18 +5,6 @@
                 [ngClass]="{'user-message': msg.type == 1, 'bot-message': msg.type == 2}" >
                 <p>{{msg.message}}</p>
             </div>
-            <!-- <div class="user-message">
-                <p>omg the world is burning!!! send halpppp!!</p>
-            </div>
-            <div class="bot-message">
-                <p>Not to worry. What kind of help are you looking for?</p>
-            </div>
-            <div class="user-message">
-                <p>THE KIND THAT WILL STOP ME FROM DYING???</p>
-            </div>
-            <div class="bot-message">
-                <p>top Sure thing, we can definitely help</p>
-            </div> -->
         </div>
         <div class="user-input">
             <form novalidate [formGroup]="frmQuery">
@@ -30,7 +18,3 @@
     </div>
 </div>
 
-
-<!-- <li *ngFor="let msg of chatHistory">
-    {{msg.type}} {{msg.message}}
-</li> -->
