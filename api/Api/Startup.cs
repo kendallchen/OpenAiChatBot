@@ -10,7 +10,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using Data;
 using Microsoft.EntityFrameworkCore;
 
 namespace Api
@@ -41,11 +40,6 @@ namespace Api
                 });
             });
 
-            //add the db context with the connection string
-            services.AddDbContextPool<AngApiStarterDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("AngApiStarterConn"))
-            );
-            services.AddScoped<ICustomerData, SqlCustomerData>();
             services.AddControllers();
         }
 

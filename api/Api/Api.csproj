@@ -16,10 +16,6 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="7.0.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.5" />
   </ItemGroup>
-  
-  <ItemGroup>
-    <ProjectReference Include="..\data\Data.csproj" />
-  </ItemGroup>
 
 
 
